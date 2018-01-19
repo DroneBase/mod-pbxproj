@@ -277,7 +277,10 @@ class ProjectFiles:
                 for build_file_id in build_phase.files:
                     build_file = self.objects[build_file_id]
 
-                    if build_file.fileRef == file_ref.get_id():
+                    if build_file == None:
+                        print 'Found null build_file: ' + build_file_id 
+                    
+                    if build_file != None and build_file.fileRef == file_ref.get_id():
                         # remove the build file from the phase
                         build_phase.remove_build_file(build_file)
 
